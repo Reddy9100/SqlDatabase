@@ -1,0 +1,56 @@
+
+
+#########
+GET http://localhost:8000/users
+content-type : application/json
+
+######
+
+
+GET http://localhost:8000/users/7`
+content-type : application/json
+
+######
+
+
+
+POST http://localhost:8000/newuser
+content-type : application/json
+
+ {
+     "first_name" : "raviteja",
+     "lastname" : "kambam",
+     "department_id" : "1",
+     "salary" : "13000",
+     "password":"1237894238"
+ 
+ }
+276
+
+##########
+
+DELETE http://localhost:8000/deleteuser/16
+
+
+###########
+
+POST http://localhost:8000/login 
+Content-Type: application/json
+
+{
+    "userId":"1",
+    "password":"Reddysai@123"
+}
+
+ 
+
+######
+
+POST http://localhost:8000/otpsend
+Content-Type: application/json
+
+ {
+    "number":"9100894136"
+ }
+
+ ##################
