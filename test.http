@@ -2,6 +2,7 @@
 
 #########
 GET http://localhost:8000/users
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwODQxMzM3OSwiZXhwIjoxNzA4NDE2OTc5fQ.kHLbUZ5PVbRGv4LkKr9If0y3JePjgvSAn08xpGd_dRA
 content-type : application/json
 
 ######
@@ -25,10 +26,8 @@ content-type : application/json
      "password":"1237894238"
  
  }
-276
 
-##########
-
+#########
 DELETE http://localhost:8000/deleteuser/16
 
 

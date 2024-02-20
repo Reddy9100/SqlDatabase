@@ -35,7 +35,7 @@ app.listen(8000,async ()=>{
 
 //to get data from the table 
 
-app.get("/users",async(req,res)=>{
+app.get("/users",VerifyToken,async(req,res)=>{
     const query = "select * from employees;"
     connection.query(query,function(err,results){
         if(err) throw new Error;
@@ -76,7 +76,7 @@ app.get("/users/:id", async (req, res) => {
 //Sign up api
 
 
-app.post("/newuser", async (req, res) => {
+app.post("/newuser",VerifyToken, async (req, res) => {
     try {
         const { first_name, last_name, department_id,salary ,password } = req.body;
 
@@ -256,3 +256,36 @@ client.verify.v2
         res.status(500).json({ error: "Internal server error" });
     }
 });
+
+
+//token verification
+
+const secretKey = "Dataevolve@112"
+function VerifyToken(req, res, next) {
+    const authHeader = req.headers["authorization"];
+    console.log("Authorization Header:", authHeader);
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        console.log("Authorization Denied: Header format incorrect");
+        return res.status(401).json({ error: "Authorization denied" });
+    }
+    
+    const token = authHeader.split(" ")[1];
+    console.log("Token:", token);
+
+    try {
+        const result = jwt.verify(token, secretKey);
+        console.log("Token Verified:", result);
+        req.user = result;
+        next();
+    } catch (err) {
+        console.error("Token Verification Error:", err);
+        return res.status(401).json({ error: "Invalid Token" });
+    }
+}
+
+
+
+
+
+
