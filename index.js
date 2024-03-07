@@ -3,17 +3,13 @@ const express = require("express")
 
 const app = express()
 
-
-
-const twilio = require("twilio")
-
 app.use(express.json())
 
 const port = 8000
 
-const connection = require("../Backend/model/crudModel")
+const connection = require("./model/crudModel")
 
-const routesOfUSer = require("../Backend/routes/crudRotes")
+const routesOfUSer = require("./routes/crudRotes")
 
 async function startSever(){
    
