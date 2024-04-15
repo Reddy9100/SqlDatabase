@@ -16,7 +16,7 @@ async function startSever(){
     try{
     await connection;
     console.log("DATABASE_CONNECTION_ESTABLISHED");
-    app.use("/api", routesOfUSer)
+   
     app.listen(port,()=>console.log(`SERVER CONNECTION IS ESTABLISHED WITH PORT ${port}`))
     }
     catch(err){
@@ -25,4 +25,4 @@ async function startSever(){
 }
 startSever()
 
-
+app.use("/api", routesOfUSer)
