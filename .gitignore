@@ -1,0 +1,32 @@
+
+node_modules/
+
+
+.env
+
+
+logs/
+
+
+npm-debug.log*
+
+# Ignore yarn debug log
+yarn-debug.log*
+
+# Ignore yarn error log
+yarn-error.log*
+
+# Ignore dist directory for compiled code
+dist/
+
+# Ignore .DS_Store files created by macOS
+.DS_Store
+
+# Ignore .vscode directory for Visual Studio Code settings
+.vscode/
+
+# Ignore any local build directories
+/build/
+
+# Ignore any local development files
+/dev/
