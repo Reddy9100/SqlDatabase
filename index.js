@@ -25,4 +25,8 @@ async function startSever(){
 }
 startSever()
 
+app.get("/",(req,res)=>{
+   res.send("Hello world")
+})
+
 app.use("/api", routesOfUSer)
